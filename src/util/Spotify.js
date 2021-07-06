@@ -2,9 +2,10 @@ export const Spotify = {
 
     accessToken: "",
     tokenExpiry: 0,
-    // my_client_id: bdcd2585173a441cb10c78262fadcf68,
-    redirect_uri: 'https://jammming_hoa.surge.sh/',
+    my_client_id: 'bdcd2585173a441cb10c78262fadcf68',
+    //redirect_uri: 'https://jammming_hoa.surge.sh/',
     //redirect_uri: 'http://localhost:3000/',
+    redirect_uri: 'https://jammming-hoa.netlify.app',
 
     getAccessToken() {
         //check if the access token variable is not empty
@@ -25,9 +26,9 @@ export const Spotify = {
         } else {
             //alert("access token variable is empty and is not in the url");
             try {
-                window.location = `https://accounts.spotify.com/authorize?client_id=bdcd2585173a441cb10c78262fadcf68&response_type=token&scope=playlist-modify-public&redirect_uri=${this.redirect_uri}`;
+                window.location = `https://accounts.spotify.com/authorize?client_id=${this.my_client_id}&response_type=token&scope=playlist-modify-public&redirect_uri=${this.redirect_uri}`;
             } catch (e) {
-                alert(e.message);
+                console.log(e.message);
             }
         }
     },
